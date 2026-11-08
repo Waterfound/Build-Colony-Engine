@@ -1,0 +1,13 @@
+{
+  "branch": "colony-run/public-conformance-001",
+  "domain_id": "remote-conformance",
+  "intent_digest": "b1dc5894eeeeb7011d0d9db6925dfe07864e715201b14f6660cbe3675eb8a960",
+  "intent_id": "bcg-e83070e1d2c84798ee64",
+  "profile_path": "profiles/build-colony.remote-probe.json",
+  "protocol_version": "0.0.7",
+  "repository": "Waterfound/Build-Colony-Engine",
+  "schema_version": 1,
+  "source_revision": "202cbf71ae45f1e8acde99f035d2ffb5f432fec6",
+  "task_kind": "conformance_probe",
+  "transport_id": "github-actions-push"
+}
