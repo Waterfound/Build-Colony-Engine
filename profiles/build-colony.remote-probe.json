@@ -1,0 +1,32 @@
+{
+  "project": "Build-Colony",
+  "profile_version": "remote-probe-0.0.7",
+  "goal": "Prove that a bounded Build Colony Work Package can execute on an independent GitHub-hosted runner and return transport-bound evidence without granting remote project authority.",
+  "invariants": [
+    "The remote conformance runner is read-only with respect to repository state.",
+    "The remote runner may transport execution evidence but cannot verify or integrate its own work.",
+    "No repository secret or private signing key is required by the transport probe.",
+    "The returned receipt must remain bound to the exact GitHub run, trigger revision, Work Package, session dispatch, result envelope, and ledger head."
+  ],
+  "forbidden_actions": [
+    "execute arbitrary commands supplied by the remote intent",
+    "write repository contents",
+    "change project authority boundaries",
+    "treat GitHub provider metadata as a cryptographic actor signature",
+    "self-verify or self-integrate the returned result"
+  ],
+  "domains": [
+    {
+      "id": "remote-conformance",
+      "objective": "Execute the Build Colony test suite on an independent GitHub-hosted runner and return a receipt bound to the exact remote run and Work Package.",
+      "gates": [
+        {
+          "id": "remote-probe",
+          "description": "Independent GitHub-hosted execution evidence with run and artifact bindings",
+          "accepted_kinds": ["remote_probe", "test", "artifact"]
+        }
+      ],
+      "permitted_blockers": ["external_evidence", "authorization", "time"]
+    }
+  ]
+}
